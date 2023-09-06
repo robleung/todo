@@ -131,4 +131,40 @@ table {
 body {
   background-color: rgb(35, 35, 35);
   color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  background-color: red;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menuLeft,
+.menuRight {
+  display: flex;
+  gap: 15px;
+  margin: 0 15px;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  background-color: rgb(220, 120, 120);
+  gap: 5px;
+  padding: 2px;
+}
+.searchBar > input {
+  border: none;
+  background-color: inherit;
+  color: white;
+}
+.searchBar > input:focus {
+  outline: none;
+}
+.searchBar > input::placeholder {
+  color: inherit;
 }
