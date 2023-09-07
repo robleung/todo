@@ -168,3 +168,11 @@ body {
 .searchBar > input::placeholder {
   color: inherit;
 }
+
+.searchBar > .material-symbols-outlined:hover {
+  cursor: default;
+}
+
+.material-symbols-outlined:hover {
+  cursor: pointer;
+}
