@@ -8,6 +8,7 @@ function menuBar() {
   let menuIcon = document.createElement("div");
   menuIcon.classList.add("material-symbols-outlined");
   menuIcon.innerHTML = "menu";
+  menuIcon.addEventListener("click", toggleSidePanel);
   let homeIcon = document.createElement("div");
   homeIcon.classList.add("material-symbols-outlined");
   homeIcon.innerHTML = "home";
@@ -42,11 +43,39 @@ function menuBar() {
   return menuBar;
 }
 
+function sidebar() {
+  let sidebar = document.createElement("div");
+  sidebar.classList.add("sidebar");
+  return sidebar;
+}
+
+function mainView() {
+  let mainView = document.createElement("div");
+  mainView.classList.add("mainView");
+  return mainView;
+}
+
+function content() {
+  let content = document.createElement("div");
+  content.classList.add("main");
+  let sidePanel = sidebar();
+  let mainContent = mainView();
+  content.append(sidePanel, mainContent);
+  return content;
+}
+
 function app() {
   let body = document.querySelector("body");
   let header = menuBar();
-  let sidebar = document.createElement("div");
-  let content = document.createElement("div");
-  body.append(header, sidebar, content);
+  let main = content();
+  body.append(header, main);
 }
+
+function toggleSidePanel() {
+  let div = document.querySelector(".sidebar");
+  div.classList.contains("sidebar-hidden")
+    ? div.classList.remove("sidebar-hidden")
+    : div.classList.add("sidebar-hidden");
+}
+
 app();

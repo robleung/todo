@@ -133,6 +133,7 @@ body {
   color: #fff;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 .header {
   background-color: red;
@@ -175,4 +176,21 @@ body {
 
 .material-symbols-outlined:hover {
   cursor: pointer;
+}
+
+.main {
+  display: flex;
+  justify-content: stretch;
+  flex-grow: 1;
+}
+
+.sidebar {
+  background-color: rgb(65, 65, 65);
+  flex-grow: 1;
+}
+.sidebar-hidden {
+  display: none;
+}
+.mainView {
+  flex-grow: 3;
 }
