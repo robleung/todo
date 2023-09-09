@@ -1,5 +1,44 @@
 import "./style.css";
 
+let todos = {};
+let projects = {};
+let uuid = 0;
+
+const todo = (
+  title,
+  description,
+  dueDate,
+  priority,
+  complete,
+  group = null
+) => {
+  return { title, description, dueDate, priority, complete, group };
+};
+const project = (name) => {
+  return { name };
+};
+
+function createProject(name) {
+  projects[name] = project(name);
+}
+
+function createTodo(title, description, dueDate, priority, complete) {
+  todos[uuid] = todo(title, description, dueDate, priority, complete);
+  uuid++;
+}
+
+function renderTodos() {
+  Object.keys(todos).forEach(function (key) {
+    console.log(todos[key].title);
+  });
+}
+
+function renderProjects() {
+  Object.keys(projects).forEach(function (key) {
+    console.log(projects[key].name);
+  });
+}
+
 function createIcon(symbol) {
   let div = document.createElement("div");
   div.classList.add("material-symbols-outlined");
@@ -82,3 +121,12 @@ function toggleSidePanel() {
 }
 
 app();
+
+createTodo("Gym", "Push Day", "2023-09-10", "3", false);
+createTodo("Laundry", "Wash, dry and fold", "2023-09-11", "3", false);
+createProject("Fitness");
+createProject("Chores");
+createProject("Groceries");
+
+renderProjects();
+renderTodos();

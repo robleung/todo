@@ -150,6 +150,11 @@ body {
   margin: 0 15px;
 }
 
+.menuLeft > .material-symbols-outlined:hover,
+.menuRight > .material-symbols-outlined:hover {
+  color: rgb(75, 60, 200);
+}
+
 .searchBar {
   display: flex;
   align-items: center;
@@ -189,14 +194,21 @@ body {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  padding: 15px 0;
+  gap: 20px;
 }
 .sidebar-hidden {
   display: none;
 }
 .sidebar > div {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
+  padding-left: 15px;
+}
+.sidebar > div:hover {
+  cursor: pointer;
+  background-color: rgb(35, 35, 35);
 }
 
 .mainView {
