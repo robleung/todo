@@ -28,14 +28,38 @@ function createTodo(title, description, dueDate, priority, complete) {
 }
 
 function renderTodos() {
+  let mainView = document.querySelector(".mainView");
   Object.keys(todos).forEach(function (key) {
-    console.log(todos[key].title);
+    let todo = document.createElement("div");
+    todo.classList.add("todo");
+    let todoLeft = document.createElement("div");
+    todoLeft.classList.add("todoLeft");
+    todoLeft.append(
+      todos[key].complete
+        ? createIcon("radio_button_checked")
+        : createIcon("radio_button_unchecked")
+    );
+    let todoRight = document.createElement("div");
+    todoRight.classList.add("todoRight");
+    let todoTitle = document.createElement("div");
+    todoTitle.innerHTML = todos[key].title;
+    let todoDescription = document.createElement("div");
+    todoDescription.innerHTML = todos[key].description;
+    let todoPriority = document.createElement("div");
+    todoPriority.innerHTML = todos[key].priority;
+    let todoDate = document.createElement("div");
+    todoDate.innerHTML = todos[key].dueDate;
+    todoRight.append(todoTitle, todoDescription, todoPriority, todoDate);
+    todo.append(todoLeft, todoRight);
+    mainView.append(todo);
   });
 }
 
 function renderProjects() {
+  let sidebarVar = document.querySelector(".sidebarVar");
+  sidebarVar.innerHTML = "";
   Object.keys(projects).forEach(function (key) {
-    console.log(projects[key].name);
+    sidebarVar.append(createIconLabel("atr", projects[key].name));
   });
 }
 
@@ -84,10 +108,15 @@ function menuBar() {
 function sidebar() {
   let sidebar = document.createElement("div");
   sidebar.classList.add("sidebar");
+  let sidebarConst = document.createElement("div");
+  sidebarConst.classList.add("sidebarConst");
   let inbox = createIconLabel("inbox", "Inbox");
   let today = createIconLabel("today", "Today");
   let upcoming = createIconLabel("calendar_month", "Upcoming");
-  sidebar.append(inbox, today, upcoming);
+  sidebarConst.append(inbox, today, upcoming);
+  let sidebarVar = document.createElement("div");
+  sidebarVar.classList.add("sidebarVar");
+  sidebar.append(sidebarConst, sidebarVar);
   return sidebar;
 }
 
@@ -123,7 +152,7 @@ function toggleSidePanel() {
 app();
 
 createTodo("Gym", "Push Day", "2023-09-10", "3", false);
-createTodo("Laundry", "Wash, dry and fold", "2023-09-11", "3", false);
+createTodo("Laundry", "Wash, dry and fold", "2023-09-11", "3", true);
 createProject("Fitness");
 createProject("Chores");
 createProject("Groceries");

@@ -152,7 +152,7 @@ body {
 
 .menuLeft > .material-symbols-outlined:hover,
 .menuRight > .material-symbols-outlined:hover {
-  color: rgb(75, 60, 200);
+  color: rgb(45, 115, 255);
 }
 
 .searchBar {
@@ -192,25 +192,41 @@ body {
 .sidebar {
   background-color: rgb(65, 65, 65);
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 15px 0;
-  gap: 20px;
 }
 .sidebar-hidden {
   display: none;
 }
-.sidebar > div {
+
+.sidebarConst,
+.sidebarVar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.sidebarConst > div,
+.sidebarVar > div {
   display: flex;
   gap: 15px;
   align-items: center;
   padding-left: 15px;
 }
-.sidebar > div:hover {
+.sidebarConst > div:hover,
+.sidebarVar > div:hover {
   cursor: pointer;
-  background-color: rgb(35, 35, 35);
+  color: rgb(45, 115, 255);
 }
 
 .mainView {
   flex-grow: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo {
+  display: flex;
+}
+.todoRight > div:first-child {
+  font-size: x-large;
 }
