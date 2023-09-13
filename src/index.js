@@ -3,6 +3,7 @@ import "./style.css";
 let todos = {};
 let projects = {};
 let uuid = 0;
+let priorityArr = ["Low", "Medium", "High"];
 
 const todo = (
   title,
@@ -43,13 +44,11 @@ function renderTodos() {
     todoRight.classList.add("todoRight");
     let todoTitle = document.createElement("div");
     todoTitle.innerHTML = todos[key].title;
-    let todoDescription = document.createElement("div");
-    todoDescription.innerHTML = todos[key].description;
     let todoPriority = document.createElement("div");
-    todoPriority.innerHTML = todos[key].priority;
+    todoPriority.innerHTML = priorityArr[todos[key].priority];
     let todoDate = document.createElement("div");
     todoDate.innerHTML = todos[key].dueDate;
-    todoRight.append(todoTitle, todoDescription, todoPriority, todoDate);
+    todoRight.append(todoTitle, todoPriority, todoDate);
     todo.append(todoLeft, todoRight);
     mainView.append(todo);
   });
@@ -151,8 +150,9 @@ function toggleSidePanel() {
 
 app();
 
-createTodo("Gym", "Push Day", "2023-09-10", "3", false);
-createTodo("Laundry", "Wash, dry and fold", "2023-09-11", "3", true);
+createTodo("Weights", "Push Day", "2023-09-10", "2", false);
+createTodo("Cardio", "Run", "2023-09-11", "1", true);
+createTodo("Laundry", "Wash, dry and fold", "2023-09-11", "2", true);
 createProject("Fitness");
 createProject("Chores");
 createProject("Groceries");
